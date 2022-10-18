@@ -5,7 +5,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li v-for="(link, index) in links" :key="index" class="nav-item active">
-                        <a class="nav-link" :href="link.link">{{link.label}}</a>
+                        <router-link class="nav-link" :to="{name: link.link}">{{link.label}}</router-link>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/register">Register</a>
                     </li>
                 </ul>
             </div>
@@ -21,23 +27,19 @@
                 links:[
                     {
                         label: 'Home',
-                        link: '#'
+                        link: 'Homepage'
                     },
                     {
                         label: 'Blog',
-                        link: '#'
+                        link: 'Blog'
                     },
                     {
                         label: 'About Us',
-                        link: '#'
+                        link: 'AboutUs'
                     },
                     {
-                        label: 'Login',
-                        link: '#'
-                    },
-                    {
-                        label: 'Register',
-                        link: '#'
+                        label: 'Contacts',
+                        link: 'Contacts'
                     },
                 ]
             }

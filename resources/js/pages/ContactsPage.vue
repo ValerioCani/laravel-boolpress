@@ -1,12 +1,12 @@
 <template>
-    <div class="container">
-        <router-view></router-view>
+    <div>
+        <h1>Contattaci</h1>
     </div>
 </template>
 
 <script>
     export default {
-        name:'MyMain',
+        name:"ContactsPage",
     }
 </script>
 
