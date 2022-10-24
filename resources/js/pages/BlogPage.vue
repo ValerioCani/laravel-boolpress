@@ -5,13 +5,8 @@
                 <span class="sr-only">Loading...</span>
             </div>
         </div>
-        <div v-else class="card p-3" v-for="(post, index) in posts" :key="index">
-            <h2>{{post.title}}</h2>
-            <p>{{truncateText(post.content, 100)}}</p>
-            <h4>{{(post.category)?post.category.name:'Nessuna categoria'}}</h4>
-            <ul>
-                <li v-for="(tag, index) in post.tags" :key="index">{{tag.name}}</li>
-            </ul>
+        <div v-else class="row">
+            <SinglePost class="card p-3 col-12" v-for="(post, index) in posts" :key="index" :post="post"/>
         </div>
         <nav>
             <ul class="pagination">
@@ -30,8 +25,13 @@
 </template>
 
 <script>
+
+    import SinglePost from '../components/SinglePost.vue'
     export default {
         name:"BlogPage",
+        components: {
+            SinglePost
+        },
         data(){
             return{
                 posts:[],
@@ -55,14 +55,6 @@
                     this.loading = false;
                 });
             },
-
-            truncateText(text, maxlength){
-                if(text.length > maxlength){
-                    return text.substring(0, maxlength) + '...';
-                }else{
-                    return text;
-                }
-            }
         },
         mounted(){
             this.getPosts(1);
